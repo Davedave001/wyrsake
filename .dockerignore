@@ -1,0 +1,16 @@
+.git
+.github
+.lovable
+.vscode
+node_modules
+.output
+.nitro
+.tanstack
+dist
+dist-ssr
+coverage
+logs
+*.log
+.env
+.env.*
+!.env.example
