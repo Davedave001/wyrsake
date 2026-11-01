@@ -10,9 +10,17 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "WYRSAKE — Women & Youth Road Safety Association Kenya" },
-      { name: "description", content: "Advocating for safer, inclusive and sustainable mobility for women, youth and every commuter in Kenya." },
+      {
+        name: "description",
+        content:
+          "Women & Youth Road Safety Association Kenya: safer, inclusive and climate-resilient transport. Research, GBV awareness and e-mobility.",
+      },
       { property: "og:title", content: "WYRSAKE — Women & Youth Road Safety Association Kenya" },
-      { property: "og:description", content: "Road safety, e-mobility and inclusion across Kenya's public transport." },
+      {
+        property: "og:description",
+        content:
+          "Women & Youth Road Safety Association Kenya: safer, inclusive and climate-resilient transport. Research, GBV awareness and e-mobility.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -24,7 +32,11 @@ function Index() {
   return (
     <>
       <section className="relative overflow-hidden bg-navy text-navy-foreground">
-        <img src={nairobi} alt="Nairobi skyline at dusk" className="absolute inset-0 h-full w-full object-cover" />
+        <img
+          src={nairobi}
+          alt="Nairobi skyline at dusk"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
         <div className="absolute inset-0 bg-hero" />
         <div className="relative mx-auto max-w-7xl px-5 py-28 md:py-40">
           <p className="eyebrow !text-sun">Women & Youth Road Safety Association Kenya</p>
@@ -32,13 +44,25 @@ function Index() {
             Safer, inclusive & sustainable roads.
           </h1>
           <p className="mt-6 max-w-xl text-lg text-navy-foreground/85">
-            We partner with regulators, transport operators and communities to make Kenya's roads and public transport safer, cleaner and more accessible.
+            We partner with regulators, transport operators and communities to make Kenya's roads
+            and public transport safer, cleaner and more accessible.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
-            <Button asChild size="lg" className="rounded-full bg-sun text-accent-foreground hover:bg-sun/90">
-              <Link to="/what-we-do">What we do <ArrowRight /></Link>
+            <Button
+              asChild
+              size="lg"
+              className="rounded-full bg-sun text-accent-foreground hover:bg-sun/90"
+            >
+              <Link to="/what-we-do">
+                What we do <ArrowRight />
+              </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="rounded-full border-navy-foreground/40 bg-transparent text-navy-foreground hover:bg-navy-foreground/10 hover:text-navy-foreground">
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="rounded-full border-navy-foreground/40 bg-transparent text-navy-foreground hover:bg-navy-foreground/10 hover:text-navy-foreground"
+            >
               <Link to="/impact">See our impact</Link>
             </Button>
           </div>
@@ -51,10 +75,19 @@ function Index() {
           <SectionHead
             eyebrow="Who we are"
             title="Advocates for safer, inclusive mobility"
-            intro="We work at the intersection of road safety, e-mobility and inclusion — convening stakeholders across the PSV sector, engaging policymakers on regulatory reform, and delivering hands-on training and pilot programs."
+            intro="We bridge the gap between community-level road safety and macroeconomic outcomes, showing how safe, reliable transport translates into income, jobs and resilience for women and youth."
           />
+          <p className="mt-4 text-muted-foreground">
+            We work at the intersection of road safety, e-mobility and inclusion — convening
+            stakeholders across the PSV sector, engaging policymakers on regulatory reform, and
+            delivering hands-on training and pilot programs.
+          </p>
           <dl className="mt-10 grid grid-cols-3 gap-4">
-            {[["200K+", "Members"], ["05", "Focus areas"], ["PSV", "Sector-wide"]].map(([v, l]) => (
+            {[
+              ["200K+", "Members"],
+              ["05", "Focus areas"],
+              ["PSV", "Sector-wide"],
+            ].map(([v, l]) => (
               <div key={l} className="rounded-xl border border-border bg-card p-4">
                 <dt className="font-display text-3xl font-bold text-primary">{v}</dt>
                 <dd className="mt-1 text-xs text-muted-foreground">{l}</dd>
@@ -73,12 +106,19 @@ function Index() {
       <section className="bg-secondary/60 py-24">
         <div className="mx-auto max-w-7xl px-5">
           <SectionHead eyebrow="Strategic focus" title="Five pillars that guide our work" />
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
             {pillars.map((p, i) => (
-              <div key={p.title} className="rounded-2xl bg-card p-6 shadow-card">
-                <span className="font-display text-sm font-bold text-muted-foreground">0{i + 1}</span>
-                <p.icon className={`mt-6 h-9 w-9 ${p.color}`} />
+              <div key={p.title} className="flex flex-col rounded-2xl bg-card p-6 shadow-card">
+                <span className="font-display text-sm font-bold text-muted-foreground">
+                  0{i + 1}
+                </span>
+                <p.icon className={`mt-5 h-9 w-9 ${p.color}`} />
                 <h3 className="mt-4 text-lg font-semibold">{p.title}</h3>
+                {p.description && (
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {p.description}
+                  </p>
+                )}
               </div>
             ))}
           </div>
@@ -88,12 +128,19 @@ function Index() {
       <section className="mx-auto max-w-7xl px-5 py-24">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <SectionHead eyebrow="Milestones" title="Our impact in action" />
-          <Link to="/impact" className="font-semibold text-primary hover:underline">All milestones →</Link>
+          <Link to="/impact" className="font-semibold text-primary hover:underline">
+            All milestones →
+          </Link>
         </div>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {milestones.slice(0, 3).map((m) => (
             <figure key={m.text} className="overflow-hidden rounded-2xl bg-card shadow-card">
-              <img src={m.img} alt={m.text} className="aspect-[4/3] w-full object-cover" loading="lazy" />
+              <img
+                src={m.img}
+                alt={m.text}
+                className="aspect-[4/3] w-full object-cover"
+                loading="lazy"
+              />
               <figcaption className="p-5 text-sm">{m.text}</figcaption>
             </figure>
           ))}
@@ -105,7 +152,13 @@ function Index() {
           <p className="eyebrow text-center">Working alongside</p>
           <div className="mt-8 grid grid-cols-4 items-center gap-8 md:grid-cols-8">
             {partners.map((p) => (
-              <img key={p.name} src={p.img} alt={p.name} className="mx-auto max-h-14 object-contain" loading="lazy" />
+              <img
+                key={p.name}
+                src={p.img}
+                alt={p.name}
+                className="mx-auto max-h-14 object-contain"
+                loading="lazy"
+              />
             ))}
           </div>
         </div>
